@@ -1,0 +1,28 @@
+{
+  "name": "desafio-backend-mimoo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "serverless": "3.27.0",
+    "@middy/core": "4.2.4",
+    "electrodb": "2.4.1"
+  },
+  "devDependencies": {
+    "typescript": "4.9.5",
+    "esbuild": "0.17.8",
+    "vite": "4.1.1",
+    "vitest": "0.28.5",
+    "eslint": "8.34.0",
+    "eslint-config-prettier": "8.6.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "prettier": "2.8.4",
+    "@types/aws-lambda": "8.10.110"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
