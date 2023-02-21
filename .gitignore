@@ -221,3 +221,5 @@ dist
 .cdk.staging/
 cdk.out/
 
+# CUSTOM
+__GENERATED__
