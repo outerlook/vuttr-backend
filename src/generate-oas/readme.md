@@ -150,4 +150,4 @@ Generates:
 
 ## Depends on
 
-- [src/api-routes](src/api-routes/readme.md)
+- [/src/api-routes](/src/api-routes/readme.md)
