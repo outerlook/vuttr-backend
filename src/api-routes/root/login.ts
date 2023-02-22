@@ -10,8 +10,6 @@ interface LoginBody {
   password: string;
 }
 
-const ENDPOINT = "";
-
 export const post = async (
   request: DefinedRequest<{ body: LoginBody }>
 ): Promise<

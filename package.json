@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "pnpm tsx scripts/build.ts",
+    "build": "tsx scripts/build.ts",
     "deploy": "tsx ./src/deployment/serverless/deploy.ts"
   },
   "author": "",

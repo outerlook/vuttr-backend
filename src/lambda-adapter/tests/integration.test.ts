@@ -1,4 +1,4 @@
-import { lambdaAdapter } from "src/build-lambdas/api-integration";
+import { lambdaAdapter } from "src/lambda-adapter/api-integration";
 import { expect, test } from "vitest";
 import { get } from "src/api-routes/root/tools";
 

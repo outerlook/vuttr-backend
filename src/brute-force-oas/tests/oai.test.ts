@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { routesConfig } from "src/build-lambdas/lambdas-config";
+import { routesConfig } from "src/lambda-adapter/lambdas-config";
 import oaiJSON from "../openAPI.json";
 
 /**

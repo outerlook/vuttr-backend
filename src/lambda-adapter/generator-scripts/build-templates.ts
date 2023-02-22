@@ -1,7 +1,7 @@
-import { BUNDLES_PATH, GENERATED_PATH, LAMBDAS_PATH, routesConfig } from "src/build-lambdas/lambdas-config";
+import { BUNDLES_PATH, GENERATED_PATH, LAMBDAS_PATH, routesConfig } from "src/lambda-adapter/lambdas-config";
 import fs from "fs";
-import { bundleLambdas } from "src/build-lambdas/generator-scripts/bundle-lambdas";
-import { generateLambdaFiles } from "src/build-lambdas/generator-scripts/generate-lambda-files";
+import { bundleLambdas } from "src/lambda-adapter/generator-scripts/bundle-lambdas";
+import { generateLambdaFiles } from "src/lambda-adapter/generator-scripts/generate-lambda-files";
 
 export const buildTemplates = async () => {
   reinitializeGeneratedDirectory();

@@ -1,8 +1,8 @@
 import { RouteConfig } from "src/api-routes/generator-scripts/generate-routes-config";
-import { LAMBDAS_PATH } from "src/build-lambdas/lambdas-config";
+import { LAMBDAS_PATH } from "src/lambda-adapter/lambdas-config";
 import path from "path";
 import fs from "fs";
-import { getContentForLambdaFile } from "src/build-lambdas/generator-scripts/get-content-from-lambda-template";
+import { getContentForLambdaFile } from "src/lambda-adapter/generator-scripts/get-content-from-lambda-template";
 
 export const generateLambdaFiles = async (routesConfig: RouteConfig[]) => {
   const promises = routesConfig.map(async (cfg, index) => {

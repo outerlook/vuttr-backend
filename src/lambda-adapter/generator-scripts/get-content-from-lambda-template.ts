@@ -1,6 +1,6 @@
 import { RouteConfig } from "src/api-routes/generator-scripts/generate-routes-config";
 import fs from "fs";
-import { TEMPLATE_PATH } from "src/build-lambdas/lambdas-config";
+import { TEMPLATE_PATH } from "src/lambda-adapter/lambdas-config";
 
 /**
  * to generate the lambda functions
