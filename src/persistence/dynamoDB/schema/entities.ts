@@ -40,6 +40,10 @@ const Tool = new Entity(
         items: "string",
       },
     },
+    /*
+     * TODO: Not sure if this is the best way to define access patterns
+     *       I must yet review the documentation about composites and indexes
+     */
     indexes: {
       byId: {
         pk: {
