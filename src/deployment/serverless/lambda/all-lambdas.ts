@@ -1,5 +1,5 @@
 // don't forget to build before expecting this to work
-import bundledLambdaConfig from "src/build-lambdas/__GENERATED__/bundles.json" assert { type: "json" };
+import bundledLambdaConfig from "out/lambdas/bundles.json" assert { type: "json" };
 import { O } from "ts-toolbelt";
 import { AWS } from "@serverless/typescript";
 import { lambdaConfigFromFn } from "src/deployment/serverless/lambda/lambda-from-fn";

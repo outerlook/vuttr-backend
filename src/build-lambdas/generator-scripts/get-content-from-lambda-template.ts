@@ -1,6 +1,6 @@
 import { RouteConfig } from "src/api-routes/generator-scripts/generate-routes-config";
 import fs from "fs";
-import { TEMPLATE_PATH } from "src/build-lambdas/generator-scripts/config";
+import { TEMPLATE_PATH } from "src/build-lambdas/lambdas-config";
 
 /**
  * to generate the lambda functions
@@ -24,4 +24,3 @@ export const getContentForLambdaFile = async (config: RouteConfig) => {
 
   return newTemplateWithImport;
 };
-

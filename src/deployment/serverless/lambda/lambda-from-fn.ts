@@ -1,6 +1,6 @@
 import { AWS } from "@serverless/typescript";
 import type { O } from "ts-toolbelt";
-import { LambdaConfig } from "src/build-lambdas/generator-scripts/config";
+import { LambdaConfig } from "src/build-lambdas/config";
 import { AUTHORIZER_REF } from "src/deployment/serverless/cognito/authorizer";
 
 export const lambdaConfigFromFn = ({

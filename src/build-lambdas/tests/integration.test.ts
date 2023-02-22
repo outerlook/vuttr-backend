@@ -1,4 +1,4 @@
-import { produceLambdaHandler } from "src/build-lambdas/api-integration";
+import { lambdaAdapter } from "src/build-lambdas/api-integration";
 import { expect, test } from "vitest";
 import { get } from "src/api-routes/root/tools";
 
@@ -44,7 +44,7 @@ test("works!", async () => {
   };
   const sampleContext = {} as any; // WON'T BE USED!
 
-  const handler = produceLambdaHandler((req) =>
+  const handler = lambdaAdapter((req) =>
     get(req as Parameters<typeof get>[0])
   );
 

@@ -1,11 +1,10 @@
-import type routesConfig from "src/api-routes/__GENERATED__/routes-config";
+import type routesConfig from "out/routes/routes-config"; // works after build
 import { Union } from "ts-toolbelt";
 
 /*
  * This file is intended to separate the configuration of the authorization layer from
  * the actual implementation of the authorization layer and business logic.
  */
-
 type Routes = (typeof routesConfig)[number];
 
 type RouteConfigValues = {

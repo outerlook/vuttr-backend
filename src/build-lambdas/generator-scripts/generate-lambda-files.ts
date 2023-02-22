@@ -1,5 +1,5 @@
 import { RouteConfig } from "src/api-routes/generator-scripts/generate-routes-config";
-import { LAMBDAS_PATH } from "src/build-lambdas/generator-scripts/config";
+import { LAMBDAS_PATH } from "src/build-lambdas/lambdas-config";
 import path from "path";
 import fs from "fs";
 import { getContentForLambdaFile } from "src/build-lambdas/generator-scripts/get-content-from-lambda-template";

@@ -22,7 +22,7 @@ type ResultBeforeMiddlewares = Omit<
  * - Allows to add new middlewares in a single place
  * - Decouples logic from lambda setup
  */
-export const produceLambdaHandler = (fn: BaseHandler): Handler => {
+export const lambdaAdapter = (fn: BaseHandler): Handler => {
   const handler = middy<APIGatewayProxyEventV2, ResultBeforeMiddlewares>(
     async (event, context) => {
       const request = {

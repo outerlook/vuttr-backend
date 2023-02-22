@@ -1,7 +1,5 @@
-import { describe, expect, test } from "vitest";
-import serverlessConfig from "../configuration";
-import fs from "fs";
-import { spawnSync } from "child_process";
+import { expect, test } from "vitest";
+import serverlessConfig from "../serverless-config";
 import { removeOutsideProjectPath } from "src/utils/remove-outside-project-path";
 
 test("check full configuration", () => {
@@ -34,7 +32,7 @@ test("check full configuration", () => {
               },
             },
           ],
-          "handler": "/src/build-lambdas/__GENERATED__/bundles/7ab57ac7.handler",
+          "handler": "/out/lambdas/bundles/2759899b.handler",
         },
         "signup-post": {
           "events": [
@@ -45,7 +43,7 @@ test("check full configuration", () => {
               },
             },
           ],
-          "handler": "/src/build-lambdas/__GENERATED__/bundles/29efcd05.handler",
+          "handler": "/out/lambdas/bundles/78d1316.handler",
         },
         "tools-get": {
           "events": [
@@ -62,7 +60,7 @@ test("check full configuration", () => {
               },
             },
           ],
-          "handler": "/src/build-lambdas/__GENERATED__/bundles/847fe49e.handler",
+          "handler": "/out/lambdas/bundles/b17d870a.handler",
         },
         "tools-id-delete": {
           "events": [
@@ -79,7 +77,7 @@ test("check full configuration", () => {
               },
             },
           ],
-          "handler": "/src/build-lambdas/__GENERATED__/bundles/b0905014.handler",
+          "handler": "/out/lambdas/bundles/b9163c9f.handler",
         },
         "tools-post": {
           "events": [
@@ -96,7 +94,7 @@ test("check full configuration", () => {
               },
             },
           ],
-          "handler": "/src/build-lambdas/__GENERATED__/bundles/77dde4e3.handler",
+          "handler": "/out/lambdas/bundles/92c50260.handler",
         },
       },
       "plugins": [

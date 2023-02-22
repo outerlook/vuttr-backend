@@ -2,6 +2,7 @@ import path from "path";
 import glob from "glob";
 import { processFile } from "src/api-routes/generator-scripts/process-file/process-file";
 import fs from "fs";
+import { createDirRecursively } from "src/utils/create-dir-recursively";
 
 const METHODS = ["get", "post", "put", "del", "patch"];
 
@@ -11,10 +12,13 @@ export type RouteConfig = {
   method: (typeof METHODS)[number];
   functionName: string;
 };
+
 export const generateRoutesConfig = async (
   rootPath: string,
   outputDir: string
 ): Promise<void> => {
+  // create dir if doesn't exist
+  createDirRecursively(outputDir);
   const routesConfigPath = path.join(outputDir, "routes-config.json");
   const files = await getFiles(rootPath);
 

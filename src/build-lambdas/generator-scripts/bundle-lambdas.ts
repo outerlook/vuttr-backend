@@ -1,6 +1,6 @@
 import esbuild from "esbuild";
 import { RouteConfig } from "src/api-routes/generator-scripts/generate-routes-config";
-import { BUNDLES_PATH, LambdaConfig } from "src/build-lambdas/generator-scripts/config";
+import { BUNDLES_PATH, LambdaConfig } from "src/build-lambdas/lambdas-config";
 import murmurhash from "murmurhash";
 import fs from "fs";
 import { isAuthenticationRequired } from "src/api-routes/auth/authorization-config";
@@ -33,8 +33,8 @@ export const bundleLambdas = async (
       functionName,
       filepath: bundlePath,
       config: {
-        requiresAuth: isAuthenticationRequired(cfg.uriPath, cfg.method)
-      }
+        requiresAuth: isAuthenticationRequired(cfg.uriPath, cfg.method),
+      },
     } as LambdaConfig;
   });
 
