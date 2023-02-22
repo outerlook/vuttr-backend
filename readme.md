@@ -29,17 +29,17 @@ type Tool = {
 
 ## Implementação atual
 
-Estado atual: WIP
+Estado atual: WIP 🚧
 
-### Resumo
+### Resumo 📝
 
-Foram criados pastas separadas para que se comportem como módulos distintos, podendo depois serem separadas em
+Foram criadas pastas separadas para que se comportem como módulos distintos, podendo depois serem separadas em
 diferentes packages, ou utilizar melhor ferramentas como pnpm workspace para gerenciar cada parte deste sistema.
 
 Foco desta implementação:
 
 - Por mais simples que o problema seja, estou criando uma estrutura para explorar possibilidades que poderiam ser
-  utilizados em escalas ou problemas maiores;
+  utilizadas em escalas ou problemas maiores;
 - Utilizar ao máximo o typescript para ter segurança na tipagem;
 - Ter responsabilidades bem definidas entre os módulos, e estrutura bem desacoplada entre elas para que uma alteração em
   uma delas possa influenciar menos em outras;
@@ -49,16 +49,16 @@ Foco desta implementação:
 
 #### Resumo dos módulos
 
-| Módulo          | Descrição                                                         |
-| --------------- | ----------------------------------------------------------------- |
-| api-routes      | Onde se define as rotas e sua lógica                              |
-| persistence     | Serviços para persistir dados (Cognito, DynamoDB)                 |
-| deployment      | Coordenação da infraestrutura (Serverless Framework)              |
-| lambda-adapter  | Gera lambdas prontos para upload a partir das rotas definidas     |
-| generate-oas    | Gera OpenAPI spec a partir das rotas definidas                    |
-| brute-force-oas | OpenAPI spec já definidas enquanto `generate-oas` não está pronto |
+| Módulo                                  | Descrição                                                         |
+| --------------------------------------- | ----------------------------------------------------------------- |
+| [api-routes](/src/api-routes)           | Onde se definem as rotas e sua lógica                             |
+| [persistence](/src/persistence)         | Serviços para persistir dados (Cognito, DynamoDB)                 |
+| [deployment](/src/deployment)           | Coordenação da infraestrutura (Serverless Framework)              |
+| [lambda-adapter](/src/lambda-adapter)   | Gera lambdas prontos para upload a partir das rotas definidas     |
+| [generate-oas](/src/generate-oas)       | Gera OpenAPI spec a partir das rotas definidas                    |
+| [brute-force-oas](/src/brute-force-oas) | OpenAPI spec já definidas enquanto `generate-oas` não está pronto |
 
-### Features
+### Features ⭐
 
 #### Definir rotas de forma simples
 
@@ -107,14 +107,15 @@ export const post = async (
 
 - Ou seja, não é necessário implementar uma lógica de autorização em cada lambda, pois o próprio Cognito já faz isso.
 
-### Observações
+### Mais Observações 👀
 
 - preferi não usar o dynamodb middleware de middy porque quero ter mais controle sobre o este layer, e não contato
   direto com o dynamodb;
-- testes collocated nas pastas dos serviços, para que se precisar mover para outro lugar, não seja necessário alterar
+- testes estão nas pastas dos módulos, para que se precisar mover para outro lugar, não seja necessário alterar
   muito as estruturas;
+- Quer saber como funciona a build? Vá até o final desta página e veja o script `build`;
 
-### Limitações
+### Limitações 🚧
 
 - Ainda não dá para colocar configurações adicionais do lambda (memória, timeout, etc). Mas poderia ser corrigido
   colocando essa responsabilidade sobre algum modulo (api-routes, ou então no módulo lambda-adapter?);
@@ -123,11 +124,19 @@ export const post = async (
 - Sem paginação na API
 - Ainda não pode alterar middlewares middy por rotas;
 
-## Documentação
+### WIP - Ainda não está funcional 🚧
+
+Você já pode gerar os artefatos e a configuração (não testada) para deploy utilizando `build`.
+Porém `deploy` ainda não funciona. O motivo é que a interface entre localstack e o serverless framework ainda não está
+funcionando. Portanto não é possível testar o deploy localmente. Consequentemente serviços como Cognito e DynamoDB não
+estão testados.
+
+## Documentação 📚
 
 - [Definição de rotas](/src/api-routes/): Consulte nesta pasta;
+- WIP
 
-## Para utilizar localmente
+## Para utilizar localmente 🚀
 
 Instale e configure o [localstack](https://github.com/localstack/localstack) para simular o ambiente AWS localmente.
 
@@ -155,12 +164,11 @@ Isso irá gerar os artefatos do seu projeto em uma pasta ./out (mas pode ser con
 <details>
 <summary>O que build faz?</summary>
 
-1. Cria pastas necessárias (por exemplo `/out`)
-2. Limpa a pasta `/out`
-3. Constrói arquivo de metadata sobre as rotas (filepath, method, etc) [módulo api-routes]
-4. Gera artefatos para upload de lambdas [módulo lambda-adapter]
-5. (não está pronto) Gera OpenAPI spec [módulo generate-oas]
-6. Gera configuração do serverless [módulo deployment]
+1. Cria ou limpa pasta de destino (por exemplo `/out`)
+2. Constrói arquivo de metadata sobre as rotas (filepath, method, etc) [módulo api-routes]
+3. Gera artefatos para upload de lambdas [módulo lambda-adapter]
+4. (não está pronto) Gera OpenAPI spec [módulo generate-oas]
+5. Gera configuração do serverless [módulo deployment]
 
 </details>
 
