@@ -29,7 +29,7 @@ export const post = async (
   }
 
   try {
-    const { getAccessToken } = await login(email, password);
+    const { getAccessToken } = await login({ email: email, password: password });
     const token = getAccessToken().getJwtToken();
     return {
       status: 200,

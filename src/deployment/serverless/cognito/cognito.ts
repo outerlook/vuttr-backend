@@ -12,6 +12,7 @@ export const cognitoPartialConfig = {
           UserPoolName: COGNITO_USER_POOL_NAME,
           UsernameAttributes: ["email"],
           AutoVerifiedAttributes: ["email"],
+
         },
       },
       CognitoUserPoolClient: {

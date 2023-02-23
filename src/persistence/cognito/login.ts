@@ -1,11 +1,18 @@
 import {
   AuthenticationDetails,
   CognitoUser,
-  CognitoUserPool, CognitoUserSession
+  CognitoUserPool,
+  CognitoUserSession,
 } from "amazon-cognito-identity-js";
 import { getEnvironmentVariablesOrThrowMissing } from "src/utils/get-environment-variables";
 
-export const login = async (email: string, password: string) => {
+export const login = async ({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) => {
   const { AWS_COGNITO_CLIENT_ID, AWS_COGNITO_USER_POOL_ID } =
     getEnvironmentVariablesOrThrowMissing(
       "AWS_COGNITO_USER_POOL_ID",

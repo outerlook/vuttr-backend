@@ -2,7 +2,7 @@ import DynamoDB from "aws-sdk/clients/dynamodb";
 import { Entity } from "electrodb";
 import { MAIN_TABLE_NAME } from "./tableDefinition";
 
-const client = new DynamoDB.DocumentClient();
+const client = new DynamoDB.DocumentClient({region: "us-east-1"});
 
 let namespace = "vuttr";
 const Tool = new Entity(
@@ -50,8 +50,19 @@ const Tool = new Entity(
           field: "pk",
           composite: ["id"],
         },
+        sk: {
+          field: "sk",
+          composite: [],
+        }
       },
       // byTag: {} // TODO find way to create index for byTag access pattern?
+      byTag: {
+        pk: {
+          field: "pk",
+          composite: ["tags"],
+
+        }
+      }
     },
   },
   { client, table: MAIN_TABLE_NAME }
