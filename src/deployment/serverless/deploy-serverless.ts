@@ -13,8 +13,10 @@ const deployServerless = async () => {
     "serverless"
   );
 
+  const additionalArgsFromCLI = process.argv.slice(2).join(" ");
+
   // serverless deploy --stage local
-  const result = exec(`${serverlessBinPath} deploy --stage local`, {
+  const result = exec(`${serverlessBinPath} deploy ${additionalArgsFromCLI}`, {
     cwd: SERVICE_ROOT,
     shell: "/bin/bash",
   });

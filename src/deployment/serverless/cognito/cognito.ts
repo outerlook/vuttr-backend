@@ -1,15 +1,28 @@
 import { AWS } from "@serverless/typescript";
 import { COGNITO_USER_POOL_NAME } from "src/deployment/serverless/cognito/constants";
-import { O, F } from "ts-toolbelt";
+import { O } from "ts-toolbelt";
 
+const cognitoUserPool = "CognitoUserPool";
 export const cognitoPartialConfig = {
   resources: {
     Resources: {
-      CognitoUserPool: {
+      [cognitoUserPool]: {
         Type: "AWS::Cognito::UserPool",
         Properties: {
           UserPoolName: COGNITO_USER_POOL_NAME,
           UsernameAttributes: ["email"],
+          AutoVerifiedAttributes: ["email"],
+        },
+      },
+      CognitoUserPoolClient: {
+        Type: "AWS::Cognito::UserPoolClient",
+        Properties: {
+          ClientName: COGNITO_USER_POOL_NAME,
+          UserPoolId: {
+            Ref: cognitoUserPool,
+          },
+          GenerateSecret: false,
+          ExplicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
         },
       },
     },
@@ -18,7 +31,7 @@ export const cognitoPartialConfig = {
     environment: {
       COGNITO_USER_POOL_NAME,
       COGNITO_USER_POOL_ID: {
-        Ref: "CognitoUserPool",
+        Ref: cognitoUserPool,
       },
     },
   },

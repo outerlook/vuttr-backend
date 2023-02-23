@@ -30,7 +30,7 @@ export const post = async (
   }
 
   try {
-    const { user } = await signUpUser(password, email);
+    const { user } = await signUpUser({ password: password, email: email });
     const { getAccessToken } = await login(email, password);
     const token = getAccessToken().getJwtToken();
     return {

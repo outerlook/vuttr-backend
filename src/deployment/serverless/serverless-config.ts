@@ -4,6 +4,7 @@ import { deepmerge } from "@fastify/deepmerge";
 import { lambdasConfig } from "src/deployment/serverless/lambda/all-lambdas";
 import { dynamodbConfig } from "src/deployment/serverless/dynamodb/dynamodb-config";
 import { O } from "ts-toolbelt";
+import { authorizerConfig } from "src/deployment/serverless/cognito/authorizer";
 
 const baseConfig = {
   service: "vuttr-backend",
@@ -22,5 +23,6 @@ export default mergeAWSConfig(
   baseConfig,
   cognitoPartialConfig,
   lambdasConfig,
-  dynamodbConfig
+  dynamodbConfig,
+  authorizerConfig
 );
