@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsx scripts/build.ts",
-    "deploy": "tsx ./src/deployment/serverless/deploy.ts"
+    "deploy": "tsx ./src/deployment/serverless/deploy-serverless.ts"
   },
   "author": "",
   "license": "ISC",
@@ -38,7 +38,6 @@
     "@types/node": "18.13.0",
     "esbuild": "0.17.8",
     "tsx": "3.12.3",
-    "serverless-localstack": "1.0.4",
     "@types/glob": "8.0.1",
     "eslint": "8.34.0",
     "ts-morph": "17.0.1",

@@ -6,21 +6,8 @@ import { dynamodbConfig } from "src/deployment/serverless/dynamodb/dynamodb-conf
 import { O } from "ts-toolbelt";
 
 const baseConfig = {
-  service: "desafio-backend",
+  service: "vuttr-backend",
   frameworkVersion: "*",
-  plugins: ["serverless-localstack"],
-  custom: {
-    localstack: {
-      stages: ["local"],
-      host: "http://localhost",
-      edgePort: 4566,
-      autostart: true,
-      lambda: {
-        mountCode: true,
-      },
-      networks: ["host"],
-    },
-  },
   provider: {
     name: "aws",
     runtime: "nodejs16.x",
