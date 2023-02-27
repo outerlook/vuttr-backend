@@ -10,6 +10,7 @@ const baseConfig = {
   service: "vuttr-backend",
   frameworkVersion: "*",
   provider: {
+    region: "sa-east-1",
     name: "aws",
     runtime: "nodejs16.x",
   },

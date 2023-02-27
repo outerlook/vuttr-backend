@@ -21,7 +21,7 @@ export const lambdaConfigFromFn = ({
       handler: `${fnPathWithoutExt}.handler`,
       events: [
         {
-          http: {
+          httpApi: {
             method,
             authorizer: config.requiresAuth
               ? {
