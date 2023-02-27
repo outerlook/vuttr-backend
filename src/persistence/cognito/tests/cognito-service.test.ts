@@ -11,7 +11,7 @@ const setupTestEnvs = () => {
   config({ path: path.resolve(__dirname, ".env.test") });
 };
 
-const testCredentials = {
+export const testCredentials = {
   email: "teste@backendtest1233321.com",
   password: "BACKEND_test123",
 };

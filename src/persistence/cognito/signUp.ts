@@ -53,7 +53,7 @@ export const signUpUser = async ({
 const confirmUser = async (email: string) => {
   const cognito = new AWS.CognitoIdentityServiceProvider({
     apiVersion: "2016-04-18",
-    region: "us-east-1",
+    region: "sa-east-1",
   });
   const { AWS_COGNITO_CLIENT_ID, AWS_COGNITO_USER_POOL_ID } =
     getEnvironmentVariablesOrThrowMissing(

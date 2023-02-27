@@ -13,7 +13,7 @@ export const deleteUser = async ({ email }: { email: string }) => {
 
   const cognito = new AWS.CognitoIdentityServiceProvider({
     apiVersion: "2016-04-18",
-    region: "us-east-1",
+    region: "sa-east-1",
   });
 
   return new Promise<{}>((resolve, reject) => {

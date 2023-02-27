@@ -2,7 +2,7 @@ import DynamoDB from "aws-sdk/clients/dynamodb";
 import { Entity, Service } from "electrodb";
 import { MAIN_TABLE_NAME } from "./tableDefinition";
 
-export const client = new DynamoDB.DocumentClient({ region: "us-east-1" });
+export const client = new DynamoDB.DocumentClient({ region: "sa-east-1" });
 
 const namespace = "vuttr";
 const taggedToolsCollection = "taggedTools";
