@@ -32,7 +32,7 @@ export const tableDefinition = {
   ],
   GlobalSecondaryIndexes: [
     {
-      IndexName: "gsi1pk-gsi1sk-index",
+      IndexName: "gs1",
       KeySchema: [
         {
           AttributeName: "gsi1pk",
